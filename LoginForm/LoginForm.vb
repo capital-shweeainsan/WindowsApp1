@@ -1,6 +1,6 @@
 ﻿Imports System
 Imports System.Data.SqlClient
-Public Class Form1
+Public Class LoginForm
     Dim username As String
     Dim password As String
     Dim connetionString As String
@@ -13,7 +13,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
+        Application.Exit()
     End Sub
 
     Private Sub Ctrl_KeyUp(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyUp, txtName.KeyUp
@@ -45,30 +45,6 @@ Public Class Form1
                     Connection.Close()
                 End Using
             End Using
-        End If
-    End Sub
-
-    Private Sub txtName_KeyDown(sender As Object, e As KeyEventArgs) Handles txtName.KeyDown
-        If e.KeyValue = Keys.Enter Then
-            If String.IsNullOrWhiteSpace(txtName.Text) Then
-                MessageBox.Show("Please Input User Name")
-                txtName.Select()
-            End If
-        End If
-    End Sub
-
-    Private Sub txtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyDown
-        If e.KeyValue = Keys.Enter Then
-            If String.IsNullOrWhiteSpace(txtPassword.Text) Then
-                MessageBox.Show("Please Input Password")
-                txtPassword.Select()
-            End If
-        End If
-    End Sub
-
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If (e.KeyData = Keys.F1) Then
-            Me.Close()
         End If
     End Sub
 End Class
